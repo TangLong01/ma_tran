@@ -1,9 +1,14 @@
 import java.util.Scanner;
 
 public class MaTran {
+//    private static void nhapPhanTu(int arr) {
+//        int min = arr[0][0];
+//        System.out.println(arr.length);
+//    }
+
     private static void phanTuNhoNhat(int[][] arr) {
         int min = arr[0][0];
-        
+        System.out.println(arr.length);
     }
 
     public static void main(String[] args) {
