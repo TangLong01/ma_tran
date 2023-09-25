@@ -25,6 +25,7 @@ public class Ngay_22_09 {
     }
 
     static public class BookBorrowingCard {
+        static Book[] bookList;
         String codeReader, codeBook, borrowDate, returnDate;
         int count;
         boolean status;
@@ -38,7 +39,7 @@ public class Ngay_22_09 {
             this.status = status;
         }
 
-        void notifyBorrow(String readerCode, String bookCode, Book[] bookList) {
+        void notifyBorrow(String readerCode, String bookCode) {
             System.out.printf("Người đọc %s đã mượn %s cuốn sách %s! \n", readerCode, count, bookCode);
             for (int i = 0; i < bookList.length; i++) {
                 if (bookList[i].code == bookCode) {
@@ -63,6 +64,7 @@ public class Ngay_22_09 {
         Book book2 = new Book("BK02", "Book 2", "Author 2", 1995, 1);
         Book book3 = new Book("BK03", "Book 3", "Author 3", 2000, 5);
         Book[] bookList = {book1, book2, book3};
+        BookBorrowingCard.bookList = bookList;
 
         Reader reader1 = new Reader("RD01", "Reader 1", 30, "20/03/2022");
         Reader reader2 = new Reader("RD02", "Reader 2", 26, "14/06/2021");
@@ -72,7 +74,7 @@ public class Ngay_22_09 {
         System.out.println("-------------------------------------------");
 
         BookBorrowingCard card1 = new BookBorrowingCard("RD01", "BK03", "22/05/2022", "26/07/2022", 2, false);
-        card1.notifyBorrow("RD01", "BK03", bookList);
+        card1.notifyBorrow("RD01", "BK03");
         System.out.printf("Số sách còn khả dụng của mã sách \"BK03\" là: %s", checkCountByCode("BK03", bookList));
     }
 }
