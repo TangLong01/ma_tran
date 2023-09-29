@@ -7,8 +7,8 @@ public class Sep09Exam2 {
             this.birthday = birthday;
         }
     }
-    
-    class FactoryEmployee extends Employee {
+
+    static class FactoryEmployee extends Employee {
         int products;
         final double BASIC_SALARY = 4000000;
         final int BONUS_PER_PRODUCT = 5000;
@@ -23,7 +23,7 @@ public class Sep09Exam2 {
         }
     }
 
-    class OfficeEmployee extends Employee {
+    static class OfficeEmployee extends Employee {
         int totalWorkday;
         final int SALARY_PER_DAY = 100000;
 
@@ -38,8 +38,8 @@ public class Sep09Exam2 {
     }
 
     public static void main(String[] args) {
-        FactoryEmployee Alice = new Sep09Exam2().new FactoryEmployee("Alice", "15/07/1985", 100);
-        OfficeEmployee Dave = new Sep09Exam2().new OfficeEmployee("Dave", "12/02/1987", 25);
+        FactoryEmployee Alice = new FactoryEmployee("Alice", "15/07/1985", 100);
+        OfficeEmployee Dave = new OfficeEmployee("Dave", "12/02/1987", 25);
 
         System.out.printf("Lương của Alice là: " + Alice.totalSalary());
         System.out.println();
