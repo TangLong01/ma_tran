@@ -1,4 +1,4 @@
-package com.maventest.app;
+package app;
 
 import data.School.*;
 
@@ -56,11 +56,11 @@ public class App {
         System.out.println("3. Xem tất cả các học sinh");
         System.out.println("4. Xem tất cả các giảng viên");
         System.out.println("5. Thoát");
-        System.out.printf("Nhập sự lựa chọn của bạn: ");
-        int selectOption = scn.nextInt();
+        System.out.printf("Nhập lựa chọn của bạn: ");
+        int selectedOption = scn.nextInt();
         scn.nextLine();
 
-        switch (selectOption) {
+        switch (selectedOption) {
             case 1:
                 listStudent = addPerson("student", listStudent);
                 break;
