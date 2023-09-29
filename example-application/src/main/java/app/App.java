@@ -12,7 +12,7 @@ public class App {
 
         if (type == "student") {
             System.out.println("---------- Nhập thông tin học sinh mới ----------");
-        } else System.out.println("---------- Nhập thông tin giảng viên mới----------");
+        } else System.out.println("---------- Nhập thông tin giảng viên mới ----------");
         System.out.printf("Nhập tên: ");
         String name = scn.nextLine();
         System.out.printf("Nhập tuổi: ");
@@ -39,17 +39,8 @@ public class App {
         }
     }
 
-    public static void main(String[] args) {
+    private static void runApp(List<Student> listStudent, List<Teacher> listTeacher) {
         Scanner scn = new Scanner(System.in);
-        Student duc = new Student("Đức", 17, "Nam", "JJFU2", 12);
-        Student my = new Student("My", 14, "Nữ", "JJF33", 9);
-        Teacher trung = new Teacher("Trung", 30, "Nam", "JDY33", "Math");
-
-        List<Student> listStudent = new ArrayList<>();
-        List<Teacher> listTeacher = new ArrayList<>();
-        listStudent.add(duc);
-        listStudent.add(my);
-        listTeacher.add(trung);
 
         System.out.println("1. Thêm học sinh");
         System.out.println("2. Thêm giảng viên");
@@ -63,10 +54,14 @@ public class App {
         switch (selectedOption) {
             case 1:
                 listStudent = addPerson("student", listStudent);
+                System.out.println("---------- || ----------");
+                runApp(listStudent, listTeacher);
                 break;
 
             case 2:
                 listTeacher = addPerson("teacher", listTeacher);
+                System.out.println("---------- || ----------");
+                runApp(listStudent, listTeacher);
                 break;
 
             case 3:
@@ -82,5 +77,20 @@ public class App {
             case 5:
                 break;
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        Student duc = new Student("Đức", 17, "Nam", "JJFU2", 12);
+        Student my = new Student("My", 14, "Nữ", "JJF33", 9);
+        Teacher trung = new Teacher("Trung", 30, "Nam", "JDY33", "Math");
+
+        List<Student> listStudent = new ArrayList<>();
+        List<Teacher> listTeacher = new ArrayList<>();
+        listStudent.add(duc);
+        listStudent.add(my);
+        listTeacher.add(trung);
+
+        runApp(listStudent, listTeacher);
     }
 }
